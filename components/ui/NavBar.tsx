@@ -1,9 +1,13 @@
-import React from 'react'
+import Link from "next/link";
 
 function NavBar() {
   return (
-    <div>NavBar</div>
-  )
+    <div className="flex justify-between items-center text-white">
+      <Link href={"/projects"}>Projects</Link>
+      <Link href={"/blog"}>Blog</Link>
+      <Link href={"/contact"}>Contact</Link>
+    </div>
+  );
 }
 
-export default NavBar
+export default NavBar;
