@@ -9,8 +9,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col space-y-5">
-        <h1 className="text-3xl font-bold underline text-blue-600">
+    <div className="flex flex-col space-y-5 text-foreground">
+        <h1 className="text-3xl font-bold underline bg-primary text-primary-foreground">
           Hello world!
         </h1>
         <div>

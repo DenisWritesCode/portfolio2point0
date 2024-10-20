@@ -31,10 +31,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="min-h-screen flex flex-col items-center justify-between ">
-          <header className="w-full sticky top-0 left-0 p-8 bg-slate-800">
+          <header className="w-full sticky top-0 left-0 p-8 bg-foreground">
             <NavBar />
           </header>
-          <div className="p-4 bg-slate-200 min-h-screen w-full">{children}</div>
+          <div className="p-4 bg-background min-h-screen w-full">{children}</div>
           <Footer />
         </div>
       </body>
