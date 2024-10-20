@@ -2,19 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import EducationAndWork from "@/components/ui/EducationNWork";
-import Footer from "@/components/ui/Footer";
-import NavBar from "@/components/ui/NavBar";
 import Services from "@/components/ui/Services";
 import SkillSet from "@/components/ui/SkillSet";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between">
-      <header className="w-full sticky top-0 left-0 p-8 bg-slate-800">
-        <NavBar />
-      </header>
-      <main className="bg-slate-200 min-h-screen w-full">
+    <div className="flex flex-col space-y-5">
         <h1 className="text-3xl font-bold underline text-blue-600">
           Hello world!
         </h1>
@@ -32,8 +26,6 @@ export default function Home() {
           <SkillSet />
           <EducationAndWork />
         </motion.div>
-      </main>
-      <Footer />
     </div>
   );
 }
