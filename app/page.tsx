@@ -5,6 +5,7 @@ import EducationAndWork from "@/components/ui/EducationNWork";
 import Services from "@/components/ui/Services";
 import SkillSet from "@/components/ui/SkillSet";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
           Hello world!
         </h1>
         <div>
-          <Button>Click me</Button>
+          <Button><Link href={"/contact"}>Contact</Link></Button>
         </div>
 
         <motion.div
