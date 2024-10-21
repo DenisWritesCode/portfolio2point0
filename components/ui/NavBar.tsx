@@ -30,7 +30,7 @@ function NavBar({ onHamClick }: { onHamClick: () => void }) {
         <Link href={"#blog"}>Blog</Link>
         <Link href={"/contact"}>Contact</Link>
       </div>
-      <div className="right">
+      <div className="right flex items-center justify-evenly">
         <li className="flex cursor-pointer">
           <ul className="py-1 px-3">
             <Link href="https://twitter.com/DenisWritesCode/">
@@ -48,6 +48,24 @@ function NavBar({ onHamClick }: { onHamClick: () => void }) {
             </Link>
           </ul>
         </li>
+        <div className="menu block sm:hidden" onClick={onHamClick}>
+          <a href="#home">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </a>
+        </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
@@ -68,24 +86,6 @@ function NavBar({ onHamClick }: { onHamClick: () => void }) {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
-      <div className="menu sm:hidden" onClick={onHamClick}>
-        <a href="#home">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </a>
       </div>
     </nav>
   );
