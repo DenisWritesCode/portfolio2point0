@@ -5,6 +5,7 @@ import EducationAndWork from "@/components/ui/EducationNWork";
 import Services from "@/components/ui/Services";
 import SkillSet from "@/components/ui/SkillSet";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -27,6 +28,11 @@ export default function Home() {
           <SkillSet />
           <EducationAndWork />
         </motion.div>
+
+        <Image src={"/logos/BlackCircle.png"} alt="Black Circle" width={250} height={250} />
+        <Image src={"/logos/BlackOnGray.png"} alt="Black on Gray" width={250} height={250} />
+        <Image src={"/logos/GrayCircle.png"} alt="Gray Circle" width={250} height={250} />
+        <Image src={"/logos/WhiteOnBlack.png"} alt="White on Black" width={250} height={250} />
     </div>
   );
 }
