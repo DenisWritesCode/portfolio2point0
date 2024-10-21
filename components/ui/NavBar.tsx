@@ -23,11 +23,11 @@ function NavBar({ onHamClick }: { onHamClick: () => void }) {
         </h1>
       </div>
       <div className="middle hidden sm:block">
-        <Link href={"#services"}>Services</Link>
-        <Link href={"#toolsNskills"}>Tools/SkillSet</Link>
-        <Link href={"#projects"}>Projects</Link>
-        <Link href={"#experience"}>Experience</Link>
-        <Link href={"#blog"}>Blog</Link>
+        <Link href={"/#services"}>Services</Link>
+        <Link href={"/#toolsNskills"}>Tools/SkillSet</Link>
+        <Link href={"/#projects"}>Projects</Link>
+        <Link href={"/#experience"}>Experience</Link>
+        <Link href={"/#blog"}>Blog</Link>
         <Link href={"/contact"}>Contact</Link>
       </div>
       <div className="right flex items-center justify-evenly">
