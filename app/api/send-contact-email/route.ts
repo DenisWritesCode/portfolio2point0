@@ -6,12 +6,14 @@ export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
+
+    const body = await request.json();
     const { data, error } = await resend.emails.send({
       from: "Contact Form Portfolio <contact@denismutinda.com>",
       to: "deniswritescode@gmail.com",
-      replyTo: "customeEmailHere@example.com",
-      subject: "hello world",
-      text: "Email from portfolio contact form works!",
+      replyTo: body.email,
+      subject: body.subject,
+      text: body.message,
     });
 
     if (error) {
