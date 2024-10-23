@@ -40,13 +40,13 @@ const contactFormSchema = z.object({
 function Contact() {
   // Contact Form.
   const contactForm = useForm<z.infer<typeof contactFormSchema>>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(contactFormSchema.required()),
     defaultValues: {
-      firstName: "John",
-      lastName: "Doe",
-      email: "mybestemail@example.com",
-      subject: "Subject: ",
-      message: "Message...",
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: "",
     },
   });
 
@@ -54,10 +54,11 @@ function Contact() {
   function onSubmit(values: z.infer<typeof contactFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    console.log("Form submitted: ", {...values});
   }
   return (
-    <div className="flex justify-center space-x-4">
+    <div className="flex-row md:flex md:align-middle md:justify-center">
+      <div className="left w-2/3 px-4">
       <Form {...contactForm}>
         <form
           onSubmit={contactForm.handleSubmit(onSubmit)}
@@ -72,7 +73,7 @@ function Contact() {
                 <FormLabel>First Name</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder={"contactForm.defaultValues.firstName"}
+                    placeholder={"First Name"}
                     {...field}
                   />
                 </FormControl>
@@ -90,7 +91,7 @@ function Contact() {
                 <FormLabel>First Name</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder={"contactForm.defaultValues.lastName"}
+                    placeholder={"Last Name"}
                     {...field}
                   />
                 </FormControl>
@@ -108,7 +109,7 @@ function Contact() {
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder={"contactForm.defaultValues.email"}
+                    placeholder={"example@test.com"}
                     {...field}
                   />
                 </FormControl>
@@ -126,7 +127,7 @@ function Contact() {
                 <FormLabel>Subject: </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder={"contactForm.defaultValues.subject"}
+                    placeholder={"I would like to..."}
                     {...field}
                   />
                 </FormControl>
@@ -144,7 +145,7 @@ function Contact() {
                 <FormLabel>Message...</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder={"contactForm.defaultValues.message"}
+                    placeholder={"Let us work together"}
                     {...field}
                   />
                 </FormControl>
@@ -156,7 +157,8 @@ function Contact() {
           <Button type="submit">Send</Button>
         </form>
       </Form>
-      <div className="right border-l-2 border-foreground px-4">Social Dock</div>
+      </div>
+      <div className="right border-l-2 border-foreground px-4 w-1/3">Social Dock</div>
     </div>
   );
 }
