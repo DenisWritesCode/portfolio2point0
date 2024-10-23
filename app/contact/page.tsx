@@ -80,7 +80,7 @@ function Contact() {
 
   return (
     <div className="flex-row md:flex md:align-middle md:justify-center">
-      <div className="left w-2/3 px-4">
+      <div className="left w-2/3 p-8">
         <Form {...contactForm}>
           <form
             // action="/api/send-contact-email"
@@ -174,7 +174,7 @@ function Contact() {
           </form>
         </Form>
       </div>
-      <div className="right border-l-2 border-foreground px-4 w-1/3">
+      <div className="right border-t-2 mt-4 md:mt-0 md:border-l-2 md:border-t-0 border-foreground p-8 w-1/3">
         Social Dock
       </div>
     </div>
