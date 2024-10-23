@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email-dev": "email dev"
+    "email-dev": "NODE_NO_WARNINGS=1 email dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -31,14 +31,14 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@types/node": "^20.16.15",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^8.57.1",
     "eslint-config-next": "14.2.15",
-    "postcss": "^8",
+    "postcss": "^8.4.47",
     "react-email": "3.0.1",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   }
 }
