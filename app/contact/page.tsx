@@ -18,30 +18,17 @@ import { Input } from "@/components/ui/input";
 import { FormEvent } from "react";
 
 const contactFormSchema = z.object({
-  firstName: z.string({
-    message: "Please enter your first name",
-  }),
-  lastName: z.string({
-    message: "Please enter your last name",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email",
-  }),
-  subject: z.string({
-    message: "Please enter a subject",
-  }),
-  message: z.string({
-    message: "Please enter a message",
-  }),
+  firstName: z.string().nonempty("Please enter your first name"),
+  lastName: z.string().nonempty("Please enter your last name"),
+  email: z.string().email("Please enter a valid email"),
+  subject: z.string().nonempty("Please enter a subject"),
+  message: z.string().nonempty("Please enter a message"),
 });
 
-// Use myScheme.safeParse ->
-// => { success: true; data: "tuna" } || => { success: false; error: ZodError }
-// z.string().email();
 function Contact() {
   // Contact Form.
   const contactForm = useForm<z.infer<typeof contactFormSchema>>({
-    resolver: zodResolver(contactFormSchema.required()),
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -52,29 +39,29 @@ function Contact() {
   });
 
   // Submit handler.
-  async function onSubmit(
-    e: FormEvent<HTMLFormElement>,
-    values: z.infer<typeof contactFormSchema>
-  ): Promise<void> {
-    // async request which may result error
+  async function onSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
+    e.preventDefault();
+
+    const values = contactForm.getValues();
+    console.log("VALUES: ", values);
+
     try {
-      // await fetch()
-      e.preventDefault();
-
-      console.log("VALUES: ", { values, JSON: JSON.stringify(values) });
-
-      const response = await fetch("/api/send-contact-email", {
+      const response: Response = await fetch("/api/send-contact-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       });
-      console.log("Form submitted: ", { ...values, response });
-      return response.json();
+
+      if (response.status !== 200) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Form submitted successfully:", data);
     } catch (e) {
-      // handle your error
-      console.log("Form error: ", { e });
+      console.error("Form submission error: ", e);
     }
   }
 
@@ -83,12 +70,7 @@ function Contact() {
       <div className="left w-2/3 p-8">
         <Form {...contactForm}>
           <form
-            // action="/api/send-contact-email"
-            // method="post" // default to post
-            onSubmit={(e: FormEvent<HTMLFormElement>) => {
-              onSubmit(e, contactForm.getValues());
-            }}
-            onError={() => {}} // error response
+            onSubmit={onSubmit}
             className="space-y-8"
           >
             {/* First Name */}
@@ -112,7 +94,7 @@ function Contact() {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel>Last Name</FormLabel>
                   <FormControl>
                     <Input placeholder={"Last Name"} {...field} />
                   </FormControl>
@@ -142,7 +124,7 @@ function Contact() {
               name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Subject: </FormLabel>
+                  <FormLabel>Subject</FormLabel>
                   <FormControl>
                     <Input placeholder={"I would like to..."} {...field} />
                   </FormControl>
@@ -159,7 +141,7 @@ function Contact() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message...</FormLabel>
+                  <FormLabel>Message</FormLabel>
                   <FormControl>
                     <Input placeholder={"Let us work together"} {...field} />
                   </FormControl>
