@@ -1,5 +1,3 @@
-import React from "react";
-
 function MobileNavBar({ onHamClick }: { onHamClick: () => void }) {
   return (
     <div className="border-t-2 border-foreground pt-2">

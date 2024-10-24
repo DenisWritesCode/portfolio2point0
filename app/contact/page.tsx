@@ -1,8 +1,8 @@
 "use client";
 
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, Field } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 
 const contactFormSchema = z.object({
   firstName: z.string().nonempty("Please enter your first name"),
@@ -69,22 +69,29 @@ function Contact() {
     <div className="flex-row md:flex md:align-middle md:justify-center">
       <div className="left w-2/3 p-8">
         <Form {...contactForm}>
-          <form
-            onSubmit={onSubmit}
-            className="space-y-8"
-          >
+          <form onSubmit={onSubmit} className="space-y-8">
             {/* First Name */}
             <FormField
               control={contactForm.control}
               name="firstName"
-              render={({ field }: {field: Field}) => (
+              render={({ field, fieldState, formState }) => (
                 <FormItem>
                   <FormLabel>First Name</FormLabel>
                   <FormControl>
                     <Input placeholder={"First Name"} {...field} />
                   </FormControl>
                   <FormDescription>This is your first name.</FormDescription>
-                  <FormMessage />
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {formState.isDirty && (
+                    <p className="text-sm text-green-500">
+                      You&apos;ve modified the form.
+                    </p>
+                  )}
+                  {!formState.isValid && (
+                    <p className="text-sm text-red-500">
+                      Please correct the errors above.
+                    </p>
+                  )}
                 </FormItem>
               )}
             />
@@ -92,14 +99,24 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="lastName"
-              render={({ field }: {field: Field}) => (
+              render={({ field, fieldState, formState }) => (
                 <FormItem>
                   <FormLabel>Last Name</FormLabel>
                   <FormControl>
                     <Input placeholder={"Last Name"} {...field} />
                   </FormControl>
                   <FormDescription>This is your last name.</FormDescription>
-                  <FormMessage />
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {formState.isDirty && (
+                    <p className="text-sm text-green-500">
+                      You&apos;ve modified the form.
+                    </p>
+                  )}
+                  {!formState.isValid && (
+                    <p className="text-sm text-red-500">
+                      Please correct the errors above.
+                    </p>
+                  )}
                 </FormItem>
               )}
             />
@@ -107,14 +124,24 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="email"
-              render={({ field }: {field: Field}) => (
+              render={({ field, fieldState, formState }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input placeholder={"example@test.com"} {...field} />
                   </FormControl>
                   <FormDescription>This is your email.</FormDescription>
-                  <FormMessage />
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {formState.isDirty && (
+                    <p className="text-sm text-green-500">
+                      You&apos;ve modified the form.
+                    </p>
+                  )}
+                  {!formState.isValid && (
+                    <p className="text-sm text-red-500">
+                      Please correct the errors above.
+                    </p>
+                  )}
                 </FormItem>
               )}
             />
@@ -122,7 +149,7 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="subject"
-              render={({ field }: {field: Field}) => (
+              render={({ field, fieldState, formState }) => (
                 <FormItem>
                   <FormLabel>Subject</FormLabel>
                   <FormControl>
@@ -131,7 +158,17 @@ function Contact() {
                   <FormDescription>
                     This is your email&apos;s subject.
                   </FormDescription>
-                  <FormMessage />
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {formState.isDirty && (
+                    <p className="text-sm text-green-500">
+                      You&apos;ve modified the form.
+                    </p>
+                  )}
+                  {!formState.isValid && (
+                    <p className="text-sm text-red-500">
+                      Please correct the errors above.
+                    </p>
+                  )}
                 </FormItem>
               )}
             />
@@ -139,7 +176,7 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="message"
-              render={({ field }: {field: Field}) => (
+              render={({ field, fieldState, formState }) => (
                 <FormItem>
                   <FormLabel>Message</FormLabel>
                   <FormControl>
@@ -148,7 +185,17 @@ function Contact() {
                   <FormDescription>
                     This is your intent of contact.
                   </FormDescription>
-                  <FormMessage />
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {formState.isDirty && (
+                    <p className="text-sm text-green-500">
+                      You&apos;ve modified the form.
+                    </p>
+                  )}
+                  {!formState.isValid && (
+                    <p className="text-sm text-red-500">
+                      Please correct the errors above.
+                    </p>
+                  )}
                 </FormItem>
               )}
             />
