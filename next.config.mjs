@@ -13,11 +13,11 @@ const nextConfig = {
     ignoreDuringBuilds: true, // Useful if ESLint warnings are causing build issues
   },
 
-  // Add internationalization (optional)
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
+  // // Add internationalization (optional)
+  // i18n: {
+  //   locales: ["en"],
+  //   defaultLocale: "en",
+  // },
 };
 
 export default nextConfig;
