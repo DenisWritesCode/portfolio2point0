@@ -236,7 +236,7 @@ export default function Home() {
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
             <path
               fill="#1f2739"
-              fill-opacity="1"
+              fillOpacity="1"
               d="M0,224L1440,128L1440,320L0,320Z"
             ></path>
           </svg>
