@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, Field } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -77,7 +77,7 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="firstName"
-              render={({ field }) => (
+              render={({ field }: {field: Field}) => (
                 <FormItem>
                   <FormLabel>First Name</FormLabel>
                   <FormControl>
@@ -92,7 +92,7 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="lastName"
-              render={({ field }) => (
+              render={({ field }: {field: Field}) => (
                 <FormItem>
                   <FormLabel>Last Name</FormLabel>
                   <FormControl>
@@ -107,7 +107,7 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="email"
-              render={({ field }) => (
+              render={({ field }: {field: Field}) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
@@ -122,7 +122,7 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="subject"
-              render={({ field }) => (
+              render={({ field }: {field: Field}) => (
                 <FormItem>
                   <FormLabel>Subject</FormLabel>
                   <FormControl>
@@ -139,7 +139,7 @@ function Contact() {
             <FormField
               control={contactForm.control}
               name="message"
-              render={({ field }) => (
+              render={({ field }: {field: Field}) => (
                 <FormItem>
                   <FormLabel>Message</FormLabel>
                   <FormControl>

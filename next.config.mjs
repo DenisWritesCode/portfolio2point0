@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",  // <=== enables static exports
   // Enable React Strict Mode to help with debugging and catching potential issues
   reactStrictMode: true,
 
