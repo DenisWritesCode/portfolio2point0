@@ -5,6 +5,7 @@ import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
+import { SocialIcons } from "@/components/ui/SocialIcons";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,37 +18,31 @@ function NavBar({ onHamClick }: { onHamClick: () => void }) {
 
   return (
     <nav className="w-full flex justify-between items-center">
-      <div className="left">
-        <h1 className="text-2xl">
+      <div className="left flex-none">
+        <h1 className="text-xl font-bold hover:uppercase">
           <Link href={"/"}>DenisWritesCode</Link>
         </h1>
       </div>
-      <div className="middle hidden sm:block">
-        <Link href={"/#services"}>Services</Link>
-        <Link href={"/#toolsNskills"}>Tools/SkillSet</Link>
-        <Link href={"/#projects"}>Projects</Link>
-        <Link href={"/#experience"}>Experience</Link>
-        <Link href={"/#blog"}>Blog</Link>
-        <Link href={"/contact"}>Contact</Link>
+      <div className="middle hidden md:flex-1 md:flex md:space-x-2 md:px-4 md:justify-around sm:block">
+        <Link className="hover:uppercase underline" href={"/#services"}>
+          Services
+        </Link>
+        <Link className="hover:uppercase underline" href={"/#toolsNSkills"}>
+          Tools/SkillSet
+        </Link>
+        <Link className="hover:uppercase underline" href={"/#projects"}>
+          Projects
+        </Link>
+        {/*<Link className="hover:uppercase underline" href={"/#experience"}>Experience</Link>
+        <Link className="hover:uppercase underline" href={"/#blog"}>Blog</Link> */}
+        <Link className="hover:uppercase underline" href={"/contact"}>
+          Contact
+        </Link>
       </div>
-      <div className="right flex items-center justify-evenly">
-        <li className="flex cursor-pointer">
-          <ul className="py-1 px-3">
-            <Link href="https://twitter.com/DenisWritesCode/">
-              <i className="cursor-pointer fab fa-twitter fa-lg"></i>
-            </Link>
-          </ul>
-          <ul className="py-1 px-3">
-            <Link href="https://www.linkedin.com/in/denis-mutinda-241500191/">
-              <i className="cursor-pointer fab fa-linkedin fa-lg"></i>
-            </Link>
-          </ul>
-          <ul className="py-1 px-3">
-            <Link href="mailto:deniswritescode@gmail.com?subject=Mail from Portfolio">
-              <i className="cursor-pointer fas fa-envelope-open-text fa-lg"></i>
-            </Link>
-          </ul>
-        </li>
+      <div className="right flex items-center space-x-2 md:flex-none">
+        <div className="hidden md:block">
+          <SocialIcons />
+        </div>
         <div className="menu block sm:hidden" onClick={onHamClick}>
           <a href="#home">
             <svg
