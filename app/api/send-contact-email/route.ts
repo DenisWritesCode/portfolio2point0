@@ -11,11 +11,11 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: "Contact From Portfolio <contact@denismutinda.com>",
-      to: "support@caesius.agency",
+      from: "DenisMutinda.Dev Contact Form <contact@denismutinda.com>",
+      to: ["support@caesius.agency", "deniswritescode@gmail.com"],
       replyTo: body.email,
-      subject: body.subject,
-      text: body.message,
+      subject: `DenisMutinda.Dev Client Budget - $${body.projectBudget}`,
+      text: body.projectDescription,
     });
 
     if (error) {
