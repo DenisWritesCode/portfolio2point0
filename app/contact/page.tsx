@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState, type FormEvent } from "react";
+// import { SocialIcons } from "@/components/ui/SocialIcons";
 
 const contactFormSchema = z.object({
   clientName: z.string().nonempty("Please enter your full name"),
@@ -88,7 +89,7 @@ function Contact() {
           }
         `}
       </Script>
-      <div className="flex-row w-full md:flex md:items-center md:justify-center">
+      <div className="flex-row w-full md:flex-row md:items-center md:justify-center">
         <div className="flex justify-center p-8">
           <Button variant={"link"}>
             <a href="/static/DenisMutindaResume.pdf" download>
@@ -96,8 +97,8 @@ function Contact() {
             </a>
           </Button>
         </div>
-        <hr className="m-4"/>
-        <div className="left md:w-2/3 p-8">
+        <hr className="m-4" />
+        <div className="mx-auto md:w-2/3 p-8">
           <Form {...contactForm}>
             <form onSubmit={onSubmit} className="space-y-8">
               {/* Client Name */}
@@ -222,9 +223,9 @@ function Contact() {
             </form>
           </Form>
         </div>
-        <div className="hidden right border-t-2 mt-4 md:mt-0 md:border-l-2 md:border-t-0 border-foreground p-8 w-1/3">
-          Social Dock
-        </div>
+        {/* <div className="hidden right border-t-2 mt-4 md:mt-0 md:border-l-2 md:border-t-0 border-foreground p-8 w-1/3">
+          <SocialIcons />
+        </div> */}
       </div>
     </>
   );
