@@ -59,6 +59,8 @@ export default function RootLayout({
           </header>
           <div className="bg-background w-full" id="home">
             {children}
+          </div>
+          <div className="w-full">
             <Footer />
           </div>
         </div>

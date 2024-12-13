@@ -8,14 +8,14 @@ export async function POST(request: NextRequest) {
   try {
     // Read the request body
     const body = await request.json();
-
+    
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: "DenisMutinda.Dev Contact Form <contact@denismutinda.com>",
-      to: ["support@caesius.agency", "deniswritescode@gmail.com"],
+      to:"deniswritescode@gmail.com",
       replyTo: body.email,
-      subject: `DenisMutinda.Dev Client Budget - $${body.projectBudget}`,
-      text: body.projectDescription,
+      subject: `DenisMutinda.Dev Contact Form - ${body.emailSubject}`,
+      text: body.emailMessage,
     });
 
     if (error) {
