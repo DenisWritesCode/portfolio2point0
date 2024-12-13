@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 // import ShinyButton from "@/components/ui/shiny-button";
 import { VelocityScroll } from "@/components/ui/scroll-based-velocity";
 import DenisMutungaMutinda from "@/public/images/DenisMutinda.png";
-import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
+import { FileTextIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -62,7 +62,7 @@ export default function HeroSection() {
                 <p className="text-xl mb-5 ">
                   I give wings to your ideas and you decide where to fly!🚀
                 </p>
-                {/* Hire Me Button */}
+                {/* Download CV Button */}
                 <div className="md:pt-10">
                   <Link
                     href={"/contact"}
@@ -71,7 +71,7 @@ export default function HeroSection() {
                       size: "lg",
                     })}`}
                   >
-                    Hire Me <EnvelopeOpenIcon />
+                    Download CV <FileTextIcon />
                     {/* <BorderBeam /> */}
                   </Link>
                 </div>
