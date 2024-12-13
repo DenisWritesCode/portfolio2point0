@@ -24,13 +24,13 @@ function NavBar({ onHamClick }: { onHamClick: () => void }) {
         </h1>
       </div>
       <div className="middle hidden md:flex-1 md:flex md:space-x-2 md:px-4 md:justify-around sm:block">
-        <Link className="hover:uppercase underline" href={"/#services"}>
+        <Link className="px-2 hover:uppercase underline" href={"/#services"}>
           Services
         </Link>
-        <Link className="hover:uppercase underline" href={"/#toolsNSkills"}>
+        <Link className="px-2 hover:uppercase underline" href={"/#toolsNSkills"}>
           Tools/SkillSet
         </Link>
-        <Link className="hover:uppercase underline" href={"/#projects"}>
+        <Link className="px-2 hover:uppercase underline" href={"/#projects"}>
           Projects
         </Link>
         {/*<Link className="hover:uppercase underline" href={"/#experience"}>Experience</Link>
