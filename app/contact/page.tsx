@@ -89,6 +89,14 @@ function Contact() {
         `}
       </Script>
       <div className="flex-row w-full md:flex md:items-center md:justify-center">
+        <div className="flex justify-center p-8">
+          <Button variant={"link"}>
+            <a href="/static/DenisMutindaResume.pdf" download>
+              Download CV
+            </a>
+          </Button>
+        </div>
+        <hr className="m-4"/>
         <div className="left md:w-2/3 p-8">
           <Form {...contactForm}>
             <form onSubmit={onSubmit} className="space-y-8">
@@ -156,10 +164,7 @@ function Contact() {
                   <FormItem>
                     <FormLabel>Subject</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder={"RE: ..."}
-                        {...field}
-                      />
+                      <Input placeholder={"RE: ..."} {...field} />
                     </FormControl>
                     <FormDescription>
                       Kindly provide a brief description of what you have in
@@ -194,9 +199,7 @@ function Contact() {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>
-                      More information
-                    </FormDescription>
+                    <FormDescription>More information</FormDescription>
                     <section className="hidden">
                       <FormMessage>{fieldState.error?.message}</FormMessage>
                       {formState.isDirty && (

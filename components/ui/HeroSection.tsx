@@ -96,7 +96,7 @@ export default function HeroSection() {
           <div className="text-foreground">
             <VelocityScroll
               text={`TypeScript 👨‍💻 Rust 👨‍💻 C & C++ 👨‍💻 Node.js 👨‍💻 Express.js 👨‍💻 Solidity 👨‍💻 Angular 👨‍💻 Tailwind CSS 👨‍💻 Next.js 👨‍💻 React-Native 👨‍💻 React 👨‍💻 Next UI 👨‍💻 Flutter 👨‍💻 Electron.js 👨‍💻 Python 👨‍💻 Vanilla JavaScript 👨‍💻 Php 👨‍💻 Python 👨‍💻`}
-              default_velocity={0.3}
+              default_velocity={0.1}
               className="font-display text-center text-3xl font-semibold tracking-[-0.02em] text-foreground drop-shadow-sm md:text-3xl md:leading-[3rem]"
             />
           </div>
